@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+    body {
+        background-color: #CFE2F5; /* Light grey background for subtle contrast */
+        font-family: 'Mulish', sans-serif; /* Modern and readable font */
+    }
+
+    .container {
+        max-width: 800px; /* Restricts the width for focus */
+        background-color: #CFE2F5; /* White background for the form area */
+        padding: 2rem; /* Padding for aesthetic spacing */
+        margin-top: 2rem; /* Margin top for spacing from the header */
+        background-color: transparent; /* Make background transparent */
+        border: none; /* No border */
+        box-shadow: none; /* No box shadow */
+    }
+
+    h1 {
+        font-size: 24px; /* More prominent font size */
+        color: #333; /* Dark grey for better readability */
+        margin-bottom: 1.5rem; /* Spacing below the header */
+        text-align: center; /* Center alignment for the title */
+    }
+
+    label {
+        font-size: 16px; /* Larger font size for readability */
+        color: #555; /* Dark grey color */
+        font-weight: normal; /* Normal weight for a modern look */
+        margin-bottom: .5rem; /* Spacing below each label */
+    }
+
+    .form-control {
+        border: 1px solid #ccc; /* Subtle border style */
+        border-radius: 4px; /* Rounded borders for input fields */
+        height: 40px; /* Fixed height for input */
+        padding: 8px; /* Padding inside the input */
+    }
+
+    textarea.form-control {
+        height: auto; /* Auto height for textarea */
+        padding: 8px; /* Consistent padding with input */
+    }
+
+    .btn-primary {
+        background-color: #007bff; /* Bootstrap primary blue */
+        border-color: #007bff; /* Same color border */
+        padding: 10px 20px; /* Button padding for a better click area */
+        font-size: 16px; /* Larger font for readability */
+        border-radius: 4px; /* Rounded corners for the button */
+        box-shadow: none; /* Removing the default box-shadow */
+    }
+
+    .btn-primary:hover {
+        background-color: #0056b3; /* Darker blue on hover for interactivity */
+        border-color: #004085; /* Border color change on hover */
+    }
+
+    .alert-info {
+        background-color: #d1ecf1;
+        border-color: #bee5eb;
+        color: #0c5460;
+        padding: 10px; /* Uniform padding */
+        border-radius: 4px; /* Rounded corners for alerts */
+    }
+</style>
+
+<div class="container mt-5">
+    <h1 class="mb-4 text-center">Question Answering LLM</h1>
+    <form method="post" class="mb-5">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="paragraph">Context Paragraph:</label>
+            <textarea id="paragraph" name="paragraph" class="form-control" placeholder="Enter paragraph here..." rows="5"></textarea>
+        </div>
+        <div class="form-group mb-3">
+            <label for="question">Your Question:</label>
+            <input id="question" type="text" name="question" class="form-control" placeholder="Enter your question...">
+        </div>
+        <button type="submit" class="btn btn-primary">Get Answer</button>
+    </form>
+    {% if answer %}
+        <div class="alert alert-info mt-3"><strong>Answer:</strong> {{ answer }}</div>
+    {% endif %}
+</div>
+{% endblock %}

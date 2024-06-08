@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block title %}AI Language Lab{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1>Welcome to Emerging Markets Insights</h1>
+    <p>Explore cutting-edge predictions and data-driven insights for emerging markets.</p>
+    <a href="{% url 'predictions:show_forecast_form' %}" class="btn btn-primary">Make a Prediction</a>
+    <a href="" class="btn btn-secondary">View Sales Dashboard</a>
+</div>
+
+<div class="features-section">
+    <div class="feature">
+        <h2>Global Market Predictions</h2>
+        <p>Use our predictive tools to gain insights into market trends and make informed decisions.</p>
+        <a href="{% url 'predictions:show_forecast_form' %}" class="btn btn-light">Learn More</a>
+    </div>
+    <div class="feature">
+        <h2>Sales Analytics Dashboard</h2>
+        <p>Access real-time sales data and analytics to see how your investments are performing.</p>
+        <a href="" class="btn btn-light">Explore Dashboard</a>
+    </div>
+</div>
+
+<style>
+    .hero-section {
+        text-align: center;
+        padding: 50px 20px;
+        background: #ccefff; /* Light blue background */
+        border-bottom: 5px solid #b6e0fe;
+    }
+    .features-section {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px;
+    }
+    .feature {
+        flex-basis: 45%;
+        padding: 20px;
+        background: #e6f7ff; /* Very light blue for feature cards */
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        margin: 20px;
+        border-radius: 8px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        color: white;
+        background-color: #007BFF;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .btn-primary {
+        background-color: #0056b3;
+    }
+    .btn-secondary {
+        background-color: #004885;
+    }
+    .btn-light {
+        background-color: #f8f9fa;
+        color: #333;
+    }
+    .btn:hover {
+        opacity: 0.85;
+    }
+</style>
+{% endblock %}

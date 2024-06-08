@@ -1,0 +1,91 @@
+/* Global settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Standard font for the whole site */
+}
+
+body {
+    background-color: #add8e6; /* Soft blue background for better readability */
+    color: #333;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-top: 70px; /* Space for fixed navbar */
+}
+
+/* Navigation styling */
+nav {
+    background-color: #0b6291; /* Professional dark blue */
+    color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 2%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.nav-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links a {
+    padding: 15px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a:focus {
+    background-color: #40e0d0; /* Slightly lighter blue for interactivity */
+}
+
+/* Main content container */
+.container {
+    width: 90%;
+    max-width: 1140px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Footer styling */
+footer {
+    background-color: #0b6291; /* Matching the navbar */
+    color: white;
+    text-align: center;
+    padding: 8px 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    body {
+        padding-top: 140px; /* Increased top padding for mobile */
+    }
+
+    nav {
+        flex-direction: column; /* Stack nav items vertically */
+        padding: 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        width: 100%; /* Full width for nav links */
+        text-align: center; /* Center align the text */
+    }
+}

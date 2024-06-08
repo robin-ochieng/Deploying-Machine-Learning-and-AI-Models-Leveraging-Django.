@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="mb-3">Dashboard</h1>
+    <!-- Embedded Power BI Report -->
+    <iframe title="April Report" width="100%" height="541.25" style="min-height: 500px;"
+        src="https://app.powerbi.com/reportEmbed?reportId=0e917c6c-a0ac-413d-9383-be516e38eb19&autoAuth=true&ctid=78ace60d-e625-4509-af83-efbf65e9859b"
+        frameborder="0" allowFullScreen="true"></iframe>
+</div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Generate Forecast{% endblock %}
+
+{% block content %}
+<div class="forecast-form-container">
+    <h1 class="text-center">Forecast Generation Form</h1>
+    <form action="{% url 'predictions:generate_forecast' %}" method="POST" class="forecast-form">
+        {% csrf_token %}
+        <div class="form-group mb-3">
+            <label for="start_date">Start Date:</label>
+            <input type="date" id="start_date" name="start_date" required class="form-control">
+        </div>
+        <div class="form-group mb-3">
+            <label for="end_date">End Date:</label>
+            <input type="date" id="end_date" name="end_date" required class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Generate Forecast</button>
+    </form>
+</div>
+<style>
+    .forecast-form-container {
+        max-width: 600px;
+        margin: 3rem auto;
+        background-color: #CCDEEC;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        color: #0b6291;
+    }
+
+    label {
+        color: #0b6291;
+        font-weight: 600;
+    }
+
+    .form-control {
+        border: 2px solid #ccc;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        margin-bottom: 1rem;
+    }
+
+    .form-control:focus {
+        border-color: #0056b3;
+        box-shadow: 0 0 0 0.2rem rgba(0,91,187,.25);
+    }
+
+    .btn-primary {
+        background-color: #0b6291;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        width: 100%;
+    }
+
+    .btn-primary:hover {
+        background-color: #084d6e;
+    }
+</style>
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+    body {
+        background-color: #CFE2F5; /* Light grey background for subtle contrast */
+        font-family: 'Mulish', sans-serif;
+        margin: 0; 
+        padding: 0 
+    }
+
+    .container {
+        max-width: 800px; /* Restricts the width for focus */
+        background-color: #CFE2F5; /* White background for clarity */
+        margin-top: 2rem; /* Margin top for better visual separation from nav */
+        padding: 2rem; /* Padding for aesthetic spacing */
+        background-color: transparent; /* Make background transparent */
+        border: none; /* No border */
+        box-shadow: none; /* No box shadow */
+        
+    }
+
+    h1 {
+        color: #333; /* Soft black for headers */
+        font-size: 28px; /* Slightly larger font for header */
+    }
+
+    .form-control {
+        border-radius: 0.25rem; /* Rounded borders for textareas */
+        box-shadow: inset 0 1px 3px rgba(0,0,0,0.06); /* Subtle inset shadow for depth */
+    }
+
+    .btn-primary {
+        background-color: #0056b3; /* Primary color for button */
+        border: none; /* Remove border */
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2); /* Shadow for button for 3D effect */
+        padding: 0.75rem 1.5rem; /* Padding for a larger, more clickable area */
+    }
+
+    .btn-primary:hover {
+        background-color: #004085; /* Darker shade on hover for interactivity */
+    }
+
+    .card {
+        margin-top: 2rem; /* Space between form and result card */
+    }
+
+    .card-header {
+        background-color: #e9ecef; /* Light gray background for header */
+        font-weight: bold; /* Bold font for emphasis */
+    }
+</style>
+
+<div class="container mt-5 custom-bg">
+    <h1 class="mb-4 text-center">Sentiment Analysis</h1>
+    <div class="row">
+        <div class="col-md-8 mx-auto">
+            <form method="post" class="mb-3">
+                {% csrf_token %}
+                <textarea name="text" placeholder="Enter text here..." class="form-control" rows="4"></textarea>
+                <button type="submit" class="btn btn-primary mt-3">Analyze Sentiment</button>
+            </form>
+            {% if result %}
+            <div class="card">
+                <div class="card-header">
+                    Model Result
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Label: <strong>{{ result.0.label }}</strong></p>
+                    <p class="card-text">Confidence: <strong>{{ result.0.score|floatformat:2 }}%</strong></p>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
