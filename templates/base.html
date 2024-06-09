@@ -14,10 +14,46 @@
 </head>
 <body>
     <style>
+        @keyframes bounce {
+            0%, 100%, 20%, 50%, 80% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
         body {
             background-color: #A9CBED; /* Light blue background for subtle contrast */
             font-family: 'Mulish', sans-serif; /* Modern and readable font */
         }
+        .nav-title-link {
+            text-decoration: none; /* Removes underline from links */
+            color: inherit; /* Ensures the color matches the surrounding text or specified color */
+            display: inline-block; /* Makes the link behave like a block for alignment purposes */
+            transition: color 0.3s ease; 
+            background-color: transparent; /* Default background */
+            padding: 5px 10px; /* Padding for better visual */
+            border-radius: 5px; /* Rounded corners */
+            outline: none; /* Removes focus outline */
+        }
+        .nav-title-link:hover{
+            animation: bounce 1s;
+        }
+    
+        .nav-title-link:focus {
+            color: #CCCCCC; /* Changes color when clicked or focused */
+            outline: none; /  /* Lighter shade when hovered or focused */
+        }
+        .nav-title {
+            /* Your existing styles */
+            font-size: 24px; /* Example size */
+            color: white; /* Example color */
+            cursor: pointer;
+        }
+        
         nav .dropdown {
             position: relative;
             display: inline-block;
@@ -49,7 +85,9 @@
         }
     </style>
     <nav>
-        <div class="nav-title">LLM Models Lab</div>
+        <a href="{% url 'predictions:home' %}" class="nav-title-link">
+            <div class="nav-title">LLM Models Lab</div>
+        </a>        
         <div class="nav-links">
             <a href="{% url 'predictions:home' %}">Home</a>
             <div class="dropdown">
